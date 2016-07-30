@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="stuManager">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://cdn.bootcss.com/materialize/0.97.6/css/materialize.css" rel="stylesheet">
+	<script src="./js/angular.js"></script>
+	<!-- <script src="./js/angular-animate.js"></script> -->
+	<script src="./js/index(1).js"></script>
+</head>
+<body ng-controller="mainCtrl">
+<nav>
+	<div class="nav-wrapper black">
+	<a href="#" class="brand-logo right">Logo</a>
+	<ul id="nav-mobile" class="left hide-on-med-and-down">
+		<li ng-click="type='card'" ng-class="{yellow:type==='card'}"><a href="#">Card</a></li>
+		<li ng-click="type='table'" ng-class="{yellow:type==='table'}"><a href="#">Table</a></li>
+	</ul>		
+  </div>
+</nav>
+<div class="container" >
+	<div class="row" ng-show="type=='card'">
+		<div class="col s4" ng-repeat="v in students">
+		 <div class="card blue darken-1">
+		 	<div class="card-content white-text">
+		 		<span class="card-title">{{v.name}}</span>
+		 	</div>
+		 	<div class="card-active">
+		 		<a href="#">{{v.id}}</a>
+		 		<a href="#">{{v.sex}}</a>
+		 	</div>
+		 </div>			
+	  </div>
+	</div>
+</div>
+<div class="container">
+  <table ng-show="type=='table'">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Item Name</th>
+              <th data-field="price">Item Price</th>
+              <th data-field="price">Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="v in students">
+            <td><input type="text" ng-blur="saveData()" ng-model="v.name" value="v.name"></td>
+            <td><input type="text" ng-blur="saveData()" ng-model="v.id" value="v.id"></td>
+            <td><input type="text" ng-blur="saveData()" ng-model="v.sex" value="v.sex"></td>
+            <td><a href="#" class="btn red" ng-click="deleteStu($index)">X</a></td>
+          </tr>
+          <tr>
+	          <td>
+	          	<a href="#" ng-click="addStu()" class="btn green">+</a>
+	          	<span ng-if="students.length!==0" class="chip">{{students.length}}</span>
+	          </td>         	
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</body>
+</html>

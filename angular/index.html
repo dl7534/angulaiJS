@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" ng-app="todoList">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link href="./css/materialize.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/angular.js"></script>
+	<script src="./js/angular-animate.js"></script>
+	<script src="./js/index.js"></script>
+	<script src="./js/jquery-1.12.0.js"></script>
+	<title>iCloud</title>
+</head>
+<body ng-controller="mainCtrl">
+	 <div class="bg">
+	     <div class="ce-left">
+	     	  <div class="event1">
+	     	  	  <div class="logo"></div>
+	     	  	  <div class="tixing">
+	     	  	  	  <span>提醒事项</span> 
+	     	  	  </div>
+	     	  	  <span class="add" ng-click="addQingdanItem()"></span>
+	     	  </div>
+	     	  <div class="event2">
+	     	      <span class="plan-logo"></span>
+	     	  	  <span class="plan">已计划</span>
+	     	  </div>
+	     	  <div class="zhuijia" 
+	     	       ng-class="{'black accent-1':v === currentQingdan}"
+                   ng-click="setCurrent($index);"
+                   ng-repeat = "v in qingdan"
+	     	       >
+	     	  	<span class="zhuijia-logo chip" ng-class="v.theme"></span>
+	     	  	<span class="zhuijia-plan" value="">{{v.name}}</span>
+                <span class="wlan"></span>
+	     	  </div>
+	     </div>
+
+	     <!-- 右边开始 -->
+	     <div class="main">
+	     	  <div class="search">
+	     	  	  <span class="search-logo"></span>
+	     	  	  <span class="secrch-title">搜索所有提醒</span>
+	     	  	  <span class="problem"></span>
+	     	  	  <span class="shu"></span>
+	     	  	   <span class="search-xia"></span>
+	     	  	  <span class="secrch-name">ding</span> 
+	     	  	  
+	     	  </div>
+	     	  <div class="shopping">
+	     	  	  <span class="buy {{currentQingdan.theme}}-text">{{currentQingdan.name}}</span>
+	     	  	  <span class="select"t ng-click="tan">选项</span>
+	     	  	  <!-- 弹出框 -->
+	     	  	  <div class="play">
+	     	  	  	  <div class="tan-shopping"><input type="text" value="" placeholder="购物"></div>
+	     	  	  	  <div class="colors">列出颜色:</div>
+	     	  	  	  <div class="rainbow">
+	     	  	  	  	  
+	     	  	  	  </div>
+	     	  	  	  <div class="tab-sure">
+	     	  	  	  	 <span class="del">删除</span>
+	     	  	  	  	 <span clss="cancel">取消</span>
+	     	  	  	  	 <span class="finish">完成</span>
+	     	  	  	  </div>
+	     	  	  </div>
+	     	  </div>
+	     	  <div class="doned">
+	     	  	  <span class="triangle"></span>
+	     	  	  <span class="wancheng-doned" ng-repeat="v in currentQingdan">{{v.length}}</span>
+	     	  	  <span class="clear {{currentQingdan.theme}}-text" >清除以完成的事项</span>
+	     	  	  <div class="Time">
+	     	  	  <div class="lin">
+	     	  	  	2016年6月5日13点22分
+	     	  	  </div>
+	     	  </div>
+	     	  	  <span class="wancheng" ng-show="currentQingdan">未完成:</span>
+	     	  	  <div ng-show="!v.state" ng-repeat="v in currentQingdan.shixiang">
+	     	  	  
+	     	
+	     	
+
+	     	  
+	     	  <div class="doned">
+	     	      <span class="main-logo {{currentQingdan.theme}} chip"></span>
+	     	  	  <div><input type="text" class="wancheng " ng-blur="saveData()" value="{{v.name}}"></div>
+	     	  	  
+	     	  	  <span class="clear {{currentQingdan.theme}}-text">详细信息</span>
+	     	  </div>
+            </div>
+	     	  
+	     </div>
+	 <div>
+
+  </div>
+</body>
+</html>

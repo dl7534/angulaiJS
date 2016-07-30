@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  ng-app="x">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="./js/angular.js" charset="utf-8"></script>
+    <script src="./js/angular-route.js" charset="utf-8"></script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body ng-controller="mainCtrl">
+  <div>{{num | number : 4}}</div>
+	<div>{{str | uppercase}}</div>
+	<div>{{str | lowercase}}</div>
+	<div>{{jiage | currency:'￥'}}</div>
+
+	<input type="text" ng-model="s">
+	<table>
+		<thead>
+		   <tr ng-init="ziduan='age';r=false">
+			  <th>姓名</th>
+			  <th ng-click="ziduan='age';r=!r">年龄</th>
+			  <th ng-click="ziduan='score';r=!r">成绩</th>
+		   </tr>
+		</thead>
+		<tbody>
+      <tr>
+        <td>
+          >100:{{list|count:100}}
+        </td>
+        <td>
+          >70:{{list|count:70}}
+        </td>
+        <td>
+          >80:{{list|count:80}}
+        </td>
+        <td>
+          count:{{list|count:}}
+        </td>
+      </tr>
+			<tr ng-repeat="v in list|orderBy:ziduna:r|filter:{age:s}">
+				<td>{{v.name|moshouqianzhui}}</td>
+				<td>{{v.age}}</td>
+				<td>{{v.score}}</td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" ng-app="stuManager"> 
+<!-- angular 扩展 -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link href="http://cdn.bootcss.com/materialize/0.97.6/css/materialize.css" rel="stylesheet">
+	  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<script src="./js/angular.js"></script>
+	<script src="./js/angular-animate.js"></script>
+	<script src="./js/index.js"></script>
+	<title>angular基础</title>
+</head>
+<body ng-controller="mainCtrl">
+   <nav>
+   	  <div class="nac-wrapper black">
+   	  	   <a href="" class="brand-logo right">Logo</a>
+   	  	   <ul id="nav-mobile" class="left hide-on-med-and-down"> 
+               <li ng-click="type='card'" ng-class="{yellow:type=='card'}"><a href="">card</a></li> 
+               <li ng-click="type='table'" ng-class="{ywllow:type=='table'}"></li>
+   	  	   </ul>
+   	  </div>
+   </nav>
+   <div class="container">
+   	   <div class="row" ng-show="type=='card'">
+   	   	    <div class="col s4 " ng-repeat=" v in students"></div>
+   	   	    <div class="card blue darken-1">
+   	   	    	<div class="card-content white-text">
+   	   	    		<span class="card-title">
+   	   	    			{{v.name}}
+   	   	    		</span>
+   	   	    	</div>
+   	   	    	<div class="card-active">
+   	   	    		<a href="">{{v.id}}</a>
+   	   	    		<a href="">{{v.name}}</a>
+   	   	    	</div>
+   	   	    </div>
+   	   </div>
+   </div>
+
+   <div class="container">
+  <table ng-show="type=='table'">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Item Name</th>
+              <th data-field="price">Item Price</th>
+              <th data-field="price">Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="v in students">
+            <td><input type="text" ng-blur="saveData()" ng-model="v.name" value="v.name"></td>
+            <td><input type="text" ng-blur="saveData()" ng-model="v.id" value="v.id"></td>
+            <td><input type="text" ng-blur="saveData()" ng-model="v.sex" value="v.sex"></td>
+            <td><a href="#" class="btn red" ng-click="deleteStu($index)">X</a></td>
+          </tr>
+          <tr>
+	          <td>
+	          	<a href="#" ng-click="addStu()" class="btn green">+</a>
+	          	<span ng-if="students.length!==0" class="chip">{{students.length}}</span>
+	          </td>         	
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</body>
+</script>
+</html>
+
+

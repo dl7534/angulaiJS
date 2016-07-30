@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://nate-river.github.io/reminders/ -->
+<html lang="zh-CN" ng-app="reminder" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reminders</title>
+    <link rel="stylesheet" href="./Reminderss_files/index.css">
+  <style type="text/css"></style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><style type="text/css">html, * {-moz-user-select:text!important;}</style></head>
+  <body ng-controller="listCtrl" ng-click="hideop()" class="ng-scope">
+    <div class="lists">
+      <div class="lists-title">
+        <div class="logo">
+        </div>
+        <div class="title">
+	  提醒事项
+        </div>
+        <div class="addlist" ng-click="addItem($event)">
+        </div>
+      </div>
+      <ul>
+        <li class="plan">
+	  <span class="plan-icon"></span>
+	  已计划
+	  <div class="row-divider"></div>
+	</li>
+        <!-- ngRepeat: li in lists track by $index --><li class="plan ng-scope" ng-repeat="li in lists track by $index" ng-class="{&#39;list-active&#39;:(li==currentlist)}" ng-click="setCurrent(li)">
+	  <span class="list-color-pink"></span>
+	  <input type="text" ng-model="li.name" ng-blur="saveData()" value="新列表 1" class="ng-pristine ng-valid ng-not-empty ng-touched">
+	  <div class="row-divider-2"></div>
+	</li><!-- end ngRepeat: li in lists track by $index --><li class="plan ng-scope list-active" ng-repeat="li in lists track by $index" ng-class="{&#39;list-active&#39;:(li==currentlist)}" ng-click="setCurrent(li)">
+	  <span class="list-color-green"></span>
+	  <input type="text" ng-model="li.name" ng-blur="saveData()" value="shopping" class="ng-valid ng-dirty ng-valid-parse ng-not-empty ng-touched">
+	  <div class="row-divider-2"></div>
+	</li><!-- end ngRepeat: li in lists track by $index --><li class="plan ng-scope" ng-repeat="li in lists track by $index" ng-class="{&#39;list-active&#39;:(li==currentlist)}" ng-click="setCurrent(li)">
+	  <span class="list-color-yellow"></span>
+	  <input type="text" ng-model="li.name" ng-blur="saveData()" value="新列表 3" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+	  <div class="row-divider-2"></div>
+	</li><!-- end ngRepeat: li in lists track by $index -->
+      </ul>
+    </div>
+    <div class="detail">
+      <div class="sc-view">
+	<div class="sc-view-left">
+	  <span class="search-icon"></span>
+	  搜索所有提醒
+	</div>
+	<div class="sc-view-right"></div>
+      </div>
+
+      <div class="sc-view-middle green">
+	<div class="sc-middle-title ">
+	  <span ng-bind="currentlist.name" class="ng-binding">shopping</span>
+	  <div class="options" ng-click="showhideop($event)" ng-show="currentlist">选项</div>
+	</div>
+
+	<div id="options-detail" class="options-detail hide" ng-class="{&#39;show&#39;:isshow,&#39;hide&#39;:!isshow}">
+	  <div class="container">
+	    <input type="text" class="i-name ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="currentlist.name" value="shopping">
+            <p class="color-list">列表颜色</p>
+            <ul class="clearfix">
+	      <!-- ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope green current-c">
+		<span class="circle green"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope yellow">
+		<span class="circle yellow"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope blue">
+		<span class="circle blue"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope orange">
+		<span class="circle orange"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope purple">
+		<span class="circle purple"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope brow">
+		<span class="circle brow"></span>
+	      </li><!-- end ngRepeat: color in colors --><li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{&#39;current-c&#39;:(color==currentlist.color)}]" class="ng-scope pink">
+		<span class="circle pink"></span>
+	      </li><!-- end ngRepeat: color in colors -->
+            </ul>
+	    <span ng-click="deleteItem()" class="op-delete">删除</span>
+	    <span ng-click="cancle()" class="op-cancle">取消</span>
+	    <span ng-click="saveData()" class="op-done">完成</span>
+	  </div>
+	</div>
+
+	<div class="sc-view-main green">
+	  <div class="row-divider-top"></div>
+	  <div class="item-done ng-binding" ng-click="toggleshowdone()" ng-show="currentlist">
+            <span class="state" ng-class="{&#39;active&#39;:isshowdone}"></span>
+	    已完成3项
+	  </div>
+
+	  <!-- ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="todo.isdone&amp;&amp;isshowdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control checked" ng-click="todo.isdone=false;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="todo.isdone&amp;&amp;isshowdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control checked" ng-click="todo.isdone=false;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="todo.isdone&amp;&amp;isshowdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control checked" ng-click="todo.isdone=false;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green item-active ng-hide" ng-show="todo.isdone&amp;&amp;isshowdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control checked" ng-click="todo.isdone=false;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top ng-hide" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index -->
+
+	  <div class="divider ng-hide" ng-show="isshowdone&amp;&amp;countdoneitem()!==0"></div>
+
+	  <!-- ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="!todo.isdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control unchecked" ng-click="todo.isdone=true;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="!todo.isdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control unchecked" ng-click="todo.isdone=true;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green ng-hide" ng-show="!todo.isdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control unchecked" ng-click="todo.isdone=true;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green ng-hide" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index --><div class="item green item-active" ng-show="!todo.isdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{&#39;item-active&#39;:todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control unchecked" ng-click="todo.isdone=true;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name" class="ng-pristine ng-untouched ng-valid ng-empty">
+	    <div class="row-divider-top ng-hide" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail green" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div><!-- end ngRepeat: todo in currentlist.todos track by $index -->
+
+	  <div class="item new green" ng-click="addtodo()" ng-show="currentlist">
+	    新条目
+	    <div class="row-divider-top"></div>
+	    <div class="row-divider-bottom"></div>
+	  </div>
+	</div>
+      </div>
+
+      <div id="todo-detail" class="options-detail hide" ng-class="{&#39;show&#39;:isshow2,&#39;hide&#39;:!isshow2}">
+	<div class="container">
+	  <span ng-click="deletetodo()" class="op-delete">删除</span>
+	  <span ng-click="isshow2=false" class="op-done">完成</span>
+	</div>
+      </div>
+
+    </div>
+    <script src="./Reminderss_files/angular.js"></script>
+    <script src="./Reminderss_files/app.js"></script>
+  
+
+</body></html>

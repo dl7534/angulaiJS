@@ -1,0 +1,82 @@
+#title {
+  position: relative;
+}
+
+#title h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 56px;
+  text-align: center;
+}
+
+#title .row {
+  margin: 0;
+}
+
+#title .add {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
+}
+
+#title .drop {
+  position: relative;
+  transition: all .8s ease;
+  transform: none;
+  opacity: 1;
+}
+
+#title .drop.ng-hide {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+
+#title .drop span {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -6px;
+  right: 42px;
+  transform: rotateZ(45deg);
+  background: #fff;
+  z-index: 10000000 !important;
+}
+
+#title .dropdown-content {
+  overflow-y: auto;
+  z-index: 10000000;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+#title .dropdown-content a {
+  color: black;
+}
+
+#tab-bar {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+#tab-bar a {
+  color: inherit;
+}
+
+#tab-bar .active {
+  background: #1c18ad;
+}
+
+/*# sourceMappingURL=map/index.css.map */
+
+/*# sourceMappingURL=map/index.css.map */

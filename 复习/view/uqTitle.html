@@ -1,0 +1,15 @@
+<nav class="black" id="title">
+  <div class="row">
+    <h1 ng-model="title" class="ng-binding">{{title}}</h1>
+    <a ng-hide="title!='微信'" href="" ng-click = "show=!show"  ng-init="show=false"  class="btn add white-text">+</a>
+    <div ng-show="show" class="drop">
+      <span></span>
+      <ul class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

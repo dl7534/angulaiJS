@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" ng-app="todoList">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link href="http://cdn.bootcss.com/materialize/0.97.6/css/materialize.css" rel="stylesheet">
+	  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<script src="./js/angular.js"></script>
+	<script src="./js/angular-animate.js"></script>
+	<script src="./js/index.js"></script>
+	<link rel="stylesheet" href="./css/index.css">
+	<title>Document</title>
+</head>
+<body ng-controller="mainCtrl">
+     <div class="grep darken-4 nav-left">
+     	<div class="left-inner">
+     		<ul class="collection">
+     			<li class="collection-item header">
+     				<div class="row valign-wrappe">
+     					<h6 class="left valign">
+     						事项提醒
+     					</h6>
+     					<a href="" class="right btn valign green ">+</a>
+     				</div>
+     			</li>
+     			<li 
+                  ng-class="{'teal accent-1':v===currrentQingdan}"
+                  ng-click= "setCurrent($index)"
+                  ng-repeat = "v in qingdan"
+                  class="collection-item"
+     			>
+                <div class="row valign-wrapper">
+                	<div ng-class="v.theme" class="circle left"></div>
+                	<span class="title left valign">{{v.name}}</span>
+                </div>
+     			</li>
+     		</ul>
+     	</div>
+     </div>
+</body>
+</html>
